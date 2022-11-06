@@ -7,6 +7,7 @@ public class Exercise2_1 {
         human1.print();
         Human human2 = new Human("ひろし", 20);
         human2.print();
+        System.out.println();
 
     }
 }
