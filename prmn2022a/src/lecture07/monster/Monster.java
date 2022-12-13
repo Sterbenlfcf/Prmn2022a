@@ -5,18 +5,18 @@ import lecture07.skill.Skill;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Monster extends HP implements IMonster{
+public class Monster implements IMonster{
 
     private String name;
-    private HP hp = new HP();
+    private HP hp;
     private int power;
     private int defense;
     private int speed;
-    private List<Skill> skills = new ArrayList<>();
+    private List<Skill> skills;
 
     protected Monster(String name, int hp, int power, int defense, int speed, List<Skill> skills){
         this.name = name;
-        setHP(hp);
+        this.hp = new HP(hp);
         this.power = power;
         this.defense = defense;
         this.speed = speed;
@@ -24,6 +24,10 @@ public class Monster extends HP implements IMonster{
     }
 
     protected Monster(IMonster monster){
+        this.name = monster.getName();
+        this.hp = monster.getHP();
+        this.power = monster.getPower();
+        this.defense = monster.getDefense();
 
     }
 
@@ -36,7 +40,7 @@ public class Monster extends HP implements IMonster{
     }
 
     public void setHP(int hp){
-        this.hp = new HP();
+        this.hp = new HP(hp);
     }
 
     public int getPower(){
